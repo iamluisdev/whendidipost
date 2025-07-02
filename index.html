@@ -478,8 +478,7 @@
                 
                 if (!subreddits[subreddit]) {
                     subreddits[subreddit] = {
-                        posts: [],
-                        latestTimestamp: timestamp
+                        posts: []
                     };
                 }
                 
@@ -491,21 +490,24 @@
                     numComments: postData.num_comments,
                     id: postData.id
                 });
-                
-                // Update latest timestamp if this post is newer
-                if (timestamp > subreddits[subreddit].latestTimestamp) {
-                    subreddits[subreddit].latestTimestamp = timestamp;
-                }
             });
             
             // Convert to array and sort by most recent activity
             return Object.entries(subreddits)
-                .map(([name, data]) => ({
-                    name: name,
-                    postCount: data.posts.length,
-                    latestTimestamp: data.latestTimestamp,
-                    posts: data.posts.sort((a, b) => b.timestamp - a.timestamp) // Sort posts by newest first
-                }))
+                .map(([name, data]) => {
+                    // Sort posts within subreddit by newest first
+                    const sortedPosts = data.posts.sort((a, b) => b.timestamp - a.timestamp);
+                    // Get the most recent post timestamp for this subreddit
+                    const latestTimestamp = Math.max(...data.posts.map(p => p.timestamp));
+                    
+                    return {
+                        name: name,
+                        postCount: data.posts.length,
+                        latestTimestamp: latestTimestamp,
+                        posts: sortedPosts
+                    };
+                })
+                // Sort subreddits by most recent post (newest first)
                 .sort((a, b) => b.latestTimestamp - a.latestTimestamp);
         }
 
