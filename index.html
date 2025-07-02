@@ -12,46 +12,50 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: #f8f9fa;
             min-height: 100vh;
             padding: 20px;
+            margin: 0;
         }
         
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         
         .header {
-            background: #ff4500;
+            background: #000;
             color: white;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
         }
         
         .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
+            font-size: 2em;
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
         }
         
         .header p {
-            opacity: 0.9;
-            font-size: 1.1em;
+            opacity: 0.7;
+            font-size: 1em;
+            font-weight: 400;
         }
         
         .search-section {
             padding: 30px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e9ecef;
         }
         
         .search-form {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -60,52 +64,55 @@
             flex: 1;
             min-width: 250px;
             padding: 12px 16px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+            border: 1.5px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: white;
         }
         
         .search-input:focus {
             outline: none;
-            border-color: #ff4500;
+            border-color: #000;
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
         }
         
         .search-btn {
             padding: 12px 24px;
-            background: #ff4500;
+            background: #000;
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.2s;
         }
         
         .search-btn:hover {
-            background: #e03d00;
+            background: #333;
         }
         
         .search-btn:disabled {
-            background: #ccc;
+            background: #6c757d;
             cursor: not-allowed;
         }
         
         .loading {
             text-align: center;
-            padding: 40px;
-            color: #666;
+            padding: 60px 30px;
+            color: #6c757d;
         }
         
         .loading .spinner {
             display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #ff4500;
+            width: 32px;
+            height: 32px;
+            border: 3px solid #f1f3f4;
+            border-top: 3px solid #000;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
         
         @keyframes spin {
@@ -121,42 +128,46 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e9ecef;
         }
         
         .results-title {
             font-size: 1.5em;
-            color: #333;
+            color: #000;
+            font-weight: 600;
         }
         
         .results-count {
-            background: #f0f0f0;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #666;
+            background: #f8f9fa;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            color: #6c757d;
+            font-weight: 500;
         }
         
         .subreddit-list {
             display: grid;
-            gap: 12px;
+            gap: 1px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
         }
         
         .subreddit-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            padding: 20px 24px;
+            background: white;
+            transition: background 0.2s;
             cursor: pointer;
         }
         
         .subreddit-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            background: #f0f0f0;
+            background: #f8f9fa;
         }
         
         .subreddit-left {
@@ -167,18 +178,21 @@
         
         .subreddit-name {
             font-weight: 600;
-            color: #ff4500;
+            color: #000;
             font-size: 1.1em;
+            letter-spacing: -0.01em;
         }
         
         .subreddit-count {
-            color: #888;
+            color: #6c757d;
             font-size: 0.85em;
+            font-weight: 400;
         }
         
         .subreddit-time {
-            color: #666;
+            color: #6c757d;
             font-size: 0.9em;
+            font-weight: 500;
         }
         
         .modal {
@@ -189,46 +203,46 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(4px);
+            background: rgba(0,0,0,0.5);
         }
         
         .modal-content {
             background: white;
             margin: 5% auto;
             padding: 0;
-            border-radius: 12px;
+            border-radius: 8px;
             width: 90%;
             max-width: 800px;
             max-height: 80vh;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
         }
         
         .modal-header {
-            background: #ff4500;
+            background: #000;
             color: white;
-            padding: 20px 30px;
+            padding: 24px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .modal-title {
-            font-size: 1.3em;
+            font-size: 1.25em;
             font-weight: 600;
+            letter-spacing: -0.01em;
         }
         
         .close {
             background: none;
             border: none;
             color: white;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            padding: 4px;
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -236,7 +250,7 @@
         }
         
         .close:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
         }
         
         .modal-body {
@@ -247,7 +261,7 @@
         
         .post-item {
             padding: 20px 30px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e9ecef;
             transition: background 0.2s;
         }
         
@@ -260,26 +274,28 @@
         }
         
         .post-title {
-            font-weight: 600;
-            color: #333;
+            font-weight: 500;
+            color: #000;
             margin-bottom: 8px;
             line-height: 1.4;
+            letter-spacing: -0.01em;
         }
         
         .post-title a {
-            color: #333;
+            color: #000;
             text-decoration: none;
         }
         
         .post-title a:hover {
-            color: #ff4500;
+            color: #666;
         }
         
         .post-meta {
             display: flex;
-            gap: 15px;
-            color: #666;
+            gap: 16px;
+            color: #6c757d;
             font-size: 0.85em;
+            font-weight: 400;
         }
         
         .post-score {
@@ -290,20 +306,20 @@
         
         .error {
             text-align: center;
-            padding: 40px;
-            color: #e74c3c;
+            padding: 60px 30px;
+            color: #6c757d;
         }
         
         .error-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 16px;
         }
         
         .footer {
-            padding: 20px;
+            padding: 30px;
             text-align: center;
             background: #f8f9fa;
-            color: #666;
+            color: #6c757d;
             font-size: 14px;
         }
         
@@ -321,7 +337,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🕒 Reddit Post Tracker</h1>
+            <h1>Reddit Post Tracker</h1>
             <p>See when you last posted in each subreddit</p>
         </div>
         
@@ -538,10 +554,44 @@
             `;
         }
 
+        function showSubredditPosts(subredditName) {
+            if (!currentUserData) return;
+            
+            const subredditData = currentUserData.subredditData.find(sub => sub.name === subredditName);
+            if (!subredditData) return;
+            
+            modalTitle.textContent = `Posts in r/${subredditName}`;
+            
+            const postsHtml = subredditData.posts.map(post => {
+                const timeAgo = getTimeAgo(post.timestamp);
+                const date = new Date(post.timestamp).toLocaleDateString();
+                
+                return `
+                    <div class="post-item">
+                        <div class="post-title">
+                            <a href="${post.url}" target="_blank" rel="noopener">${post.title}</a>
+                        </div>
+                        <div class="post-meta">
+                            <div class="post-score">
+                                <span>${post.score} points</span>
+                            </div>
+                            <div>
+                                <span>${post.numComments} comments</span>
+                            </div>
+                            <div title="${date}">${timeAgo}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            modalBody.innerHTML = postsHtml;
+            postsModal.style.display = 'block';
+        }
+
         function showError(message) {
             content.innerHTML = `
                 <div class="error">
-                    <div class="error-icon">⚠️</div>
+                    <div class="error-icon">!</div>
                     <p>${message}</p>
                 </div>
             `;
